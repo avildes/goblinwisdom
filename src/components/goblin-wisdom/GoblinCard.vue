@@ -9,7 +9,7 @@
 
     <div v-if="loadingState === 'loading'" class="loading">
       <span class="text-gray-500">Loading card...</span>
-      <img src="/spinner.svg" alt="loading" />
+      <img src="../../assets/spinner.svg" alt="loading" />
     </div>
   </div>
 </template>
