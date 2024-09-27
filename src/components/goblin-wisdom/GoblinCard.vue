@@ -32,9 +32,9 @@ export default {
       axios.get(API_URL).then((response) => {
         setTimeout(() => {
           this.loadingState = "success";
-          this.flavor = response.data.flavor_text;
-          this.image = response.data.image_uris.png;
-          this.background = response.data.image_uris.art_crop;
+          this.flavor = response.data.flavor;
+          this.image = response.data.image;
+          this.background = response.data.background;
           document.querySelector(
             ".app"
           ).style.backgroundImage = `url(${this.background})`;
