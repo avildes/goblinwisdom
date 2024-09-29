@@ -1,7 +1,5 @@
 <template>
-  <div class="main">
-    <GoblinCard />
-  </div>
+  <GoblinCard />
 </template>
 
 <script>
@@ -14,9 +12,3 @@ export default {
   },
 };
 </script>
-
-<style lang="css">
-.main {
-  @apply bg-orange-900/50;
-}
-</style>

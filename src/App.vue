@@ -15,7 +15,7 @@ export default {
 };
 </script>
 <style lang="css">
-.app {
+/*.app {
   @apply bg-cover bg-center bg-no-repeat;
-}
+}*/
 </style>
