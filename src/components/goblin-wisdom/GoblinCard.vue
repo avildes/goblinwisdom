@@ -1,16 +1,15 @@
 <template>
   <div class="main">
-    <div class="overlay flex items-center justify-center">
-      <div class="card flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
-        <h1 class="p-4 text-4xl md:text-5xl lg:text-6xl text-center cardo-regular-italic text-shadow text-white">
+    <div class="overlay">
+      <div class="card" v-if="loadingState === 'success'">
+        <h1 class="text cardo-regular-italic text-shadow">
           {{ flavor }}
         </h1>
         <img :src="image" alt="Goblin Card" class="w-full max-w-xs md:max-w-sm lg:max-w-md" />
       </div>
       
       <div v-if="loadingState === 'loading'" class="loading">
-        <span class="text-gray-500">Loading card...</span>
-        <img src="../../assets/spinner.svg" alt="loading" />
+        <Loading/>
       </div>
     </div>
   </div>
@@ -19,6 +18,7 @@
 <script>
 import axios from "axios";
 import { API_URL } from "../../config";
+import Loading from "./Loading.vue"
 export default {
   data() {
     return {
@@ -34,6 +34,7 @@ export default {
       this.image = "https://cards.scryfall.io/png/front/4/4/44420f52-2ed8-4f81-93e4-5decc77bed01.png?1699044280";
       this.background = "https://cards.scryfall.io/art_crop/front/4/4/44420f52-2ed8-4f81-93e4-5decc77bed01.jpg?1699044280";
       document.querySelector(".main").style.backgroundImage = `url(${this.background})`;
+      this.loadingState = "success";
     },
     fetchCard() {
       this.loadingState = "loading";
@@ -52,6 +53,9 @@ export default {
     this.fetchCard();
     //this.fetchLocal();
   },
+  components: {
+    Loading
+  }
 };
 </script>
 
@@ -65,15 +69,19 @@ body {
 }
 
 .overlay {
-  @apply h-screen bg-orange-900/50;
+  @apply h-screen bg-orange-900/50 flex items-center justify-center;
 }
 
 .card {
-  @apply gap-4 content-center p-8 rounded-lg flex items-center justify-center flex-col-reverse md:flex-row space-y-10 md:space-y-0 md:space-x-4;
+  @apply gap-4 content-center p-8 rounded-lg flex flex-col-reverse items-center md:flex-row space-y-10 md:space-y-0 md:space-x-4;
 }
 
 .loading {
-  @apply fixed top-0 left-0 right-0 bottom-0 bg-white flex justify-center items-center;
+  @apply fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center;
+}
+
+.text {
+  @apply p-4 text-4xl md:text-5xl lg:text-6xl text-center text-white;
 }
 
 .cardo-regular-italic {
