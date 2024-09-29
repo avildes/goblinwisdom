@@ -49,8 +49,8 @@ export default {
     },
   },
   mounted() {
-    //this.fetchCard();
-    this.fetchLocal();
+    this.fetchCard();
+    //this.fetchLocal();
   },
 };
 </script>
@@ -65,11 +65,11 @@ body {
 }
 
 .overlay {
-  @apply flex items-center justify-center h-full w-full bg-orange-900/50 absolute top-0 left-0;
+  @apply h-screen bg-orange-900/50;
 }
 
 .card {
-  @apply gap-4 content-center p-8 rounded-lg items-center flex flex-col-reverse md:flex-row space-y-10 md:space-y-0 md:space-x-4;
+  @apply gap-4 content-center p-8 rounded-lg flex items-center justify-center flex-col-reverse md:flex-row space-y-10 md:space-y-0 md:space-x-4;
 }
 
 .loading {
