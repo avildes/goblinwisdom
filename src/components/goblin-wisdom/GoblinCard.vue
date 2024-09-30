@@ -1,17 +1,13 @@
 <template>
-  <div class="main">
-    <div class="overlay">
-      <div class="card" v-if="loadingState === 'success'">
-        <h1 class="text cardo-regular-italic text-shadow">
-          {{ flavor }}
-        </h1>
-        <img :src="image" alt="Goblin Card" class="w-full max-w-xs md:max-w-sm lg:max-w-md" />
-      </div>
-      
-      <div v-if="loadingState === 'loading'" class="loading">
-        <Loading/>
-      </div>
-    </div>
+  <div class="card" v-if="loadingState === 'success'">
+    <h1 class="text cardo-regular-italic text-shadow">
+      {{ flavor }}
+    </h1>
+    <img :src="image" alt="Goblin Card" class="w-full max-w-xs md:max-w-sm lg:max-w-md" />
+  </div>
+
+  <div v-if="loadingState === 'loading'" class="loading">
+    <Loading />
   </div>
 </template>
 
@@ -50,8 +46,8 @@ export default {
     },
   },
   mounted() {
-    this.fetchCard();
-    //this.fetchLocal();
+    //this.fetchCard();
+    this.fetchLocal();
   },
   components: {
     Loading
@@ -60,18 +56,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  @apply m-0 p-0 h-screen overflow-hidden;
-}
-
-.main {
-  @apply h-screen bg-cover bg-center bg-no-repeat;
-}
-
-.overlay {
-  @apply h-screen bg-orange-900/50 flex items-center justify-center;
-}
-
 .card {
   @apply gap-4 content-center p-8 rounded-lg flex flex-col-reverse items-center md:flex-row space-y-10 md:space-y-0 md:space-x-4;
 }
