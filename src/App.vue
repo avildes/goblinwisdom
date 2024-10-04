@@ -2,29 +2,18 @@
   <div class="main">
     <div class="overlay">
       <div id="app">
-        <div v-if="!about">
-          <GoblinWisdom />
-        </div>
-        <div v-else>
-          <About @closeAbout="toggleAbout" />
-        </div>
+        <main>
+          <RouterView />
+        </main>
       </div>
     </div>
-    <Footer @openAbout="toggleAbout" />
+    <Footer />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import About from "./components/goblin-wisdom/About.vue";
 import Footer from "./components/Footer.vue";
-import GoblinWisdom from "./components/goblin-wisdom/GoblinWisdom.vue";
 
-const about = ref(false);
-
-function toggleAbout() {
-  about.value = !about.value;
-}
 </script>
 
 <style lang="css">

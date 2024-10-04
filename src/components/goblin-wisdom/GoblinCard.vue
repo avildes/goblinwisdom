@@ -46,8 +46,8 @@ export default {
     },
   },
   mounted() {
-    //this.fetchCard();
-    this.fetchLocal();
+    this.fetchCard();
+    //this.fetchLocal();
   },
   components: {
     Loading
