@@ -1,21 +1,31 @@
 <template>
-  <div id="app">
-    <GoblinWisdom />
+  <div class="main">
+    <div class="overlay">
+      <div id="app">
+        <main>
+          <RouterView />
+        </main>
+      </div>
+    </div>
+    <Footer />
   </div>
 </template>
 
-<script>
-import GoblinWisdom from "./components/goblin-wisdom/GoblinWisdom.vue";
+<script setup>
+import Footer from "./components/Footer.vue";
 
-export default {
-  name: "app",
-  components: {
-    GoblinWisdom,
-  },
-};
 </script>
+
 <style lang="css">
-/*.app {
-  @apply bg-cover bg-center bg-no-repeat;
-}*/
+body {
+  @apply m-0 p-0 h-screen overflow-hidden;
+}
+
+.main {
+  @apply h-screen bg-cover bg-center bg-no-repeat;
+}
+
+.overlay {
+  @apply h-screen bg-orange-900/50 flex items-center justify-center;
+}
 </style>
