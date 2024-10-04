@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="footer" v-if="$route.path === '/'">
     <RouterLink to="/about">About</RouterLink>
   </div>
 </template>
