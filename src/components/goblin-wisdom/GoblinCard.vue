@@ -25,14 +25,14 @@ const loadingState = ref("loading")
 const fetchCard = () => {
   loadingState.value = "loading";
   axios.get(API_URL).then((response) => {
-    setTimeout(() => {
-      flavor.value = response.data.flavor;
-      image.value = response.data.image;
-      background.value = response.data.background;
-    }, 1000);
+    flavor.value = response.data.flavor;
+    image.value = response.data.image;
+    background.value = response.data.background;
   }).finally(() => {
-    document.querySelector(".wisdom").style.backgroundImage = `url(${background.value})`;
-    loadingState.value = "success";
+    setTimeout(() => {
+      document.querySelector(".wisdom").style.backgroundImage = `url(${background.value})`;
+      loadingState.value = "success";
+    }, 1000);
   });
 }
 
