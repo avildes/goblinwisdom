@@ -26,14 +26,13 @@ const fetchCard = () => {
   loadingState.value = "loading";
   axios.get(API_URL).then((response) => {
     setTimeout(() => {
-      loadingState.value = "success";
       flavor.value = response.data.flavor;
       image.value = response.data.image;
       background.value = response.data.background;
     }, 1000);
   }).finally(() => {
-    loadingState.value = "success";
     document.querySelector(".wisdom").style.backgroundImage = `url(${background.value})`;
+    loadingState.value = "success";
   });
 }
 
