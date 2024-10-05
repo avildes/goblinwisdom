@@ -11,53 +11,40 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue';
 import axios from "axios";
 import { API_URL } from "../../config";
-import Loading from "./Loading.vue"
-export default {
-  data() {
-    return {
-      background: "",
-      image: "",
-      flavor: "",
-      loadingState: null,
-    };
-  },
-  methods: {
-    fetchLocal() {
-      this.flavor = "\"He would've wanted me to have it!\"";
-      this.image = "https://cards.scryfall.io/png/front/4/4/44420f52-2ed8-4f81-93e4-5decc77bed01.png?1699044280";
-      this.background = "https://cards.scryfall.io/art_crop/front/4/4/44420f52-2ed8-4f81-93e4-5decc77bed01.jpg?1699044280";
-      document.querySelector(".main").style.backgroundImage = `url(${this.background})`;
-      this.loadingState = "success";
-    },
-    fetchCard() {
-      this.loadingState = "loading";
-      axios.get(API_URL).then((response) => {
-        setTimeout(() => {
-          this.loadingState = "success";
-          this.flavor = response.data.flavor;
-          this.image = response.data.image;
-          this.background = response.data.background;
-          document.querySelector(".main").style.backgroundImage = `url(${this.background})`;
-        }, 1000);
-      });
-    },
-  },
-  mounted() {
-    this.fetchCard();
-    //this.fetchLocal();
-  },
-  components: {
-    Loading
-  }
-};
+import Loading from "./Loading.vue";
+
+const background = ref("https://cards.scryfall.io/art_crop/front/4/4/44420f52-2ed8-4f81-93e4-5decc77bed01.jpg?1699044280")
+const image = ref("https://cards.scryfall.io/png/front/4/4/44420f52-2ed8-4f81-93e4-5decc77bed01.png?1699044280")
+const flavor = ref("\"He would've wanted me to have it!\"")
+const loadingState = ref("loading")
+
+const fetchCard = () => {
+  loadingState.value = "loading";
+  axios.get(API_URL).then((response) => {
+    setTimeout(() => {
+      loadingState.value = "success";
+      flavor.value = response.data.flavor;
+      image.value = response.data.image;
+      background.value = response.data.background;
+    }, 1000);
+  }).finally(() => {
+    loadingState.value = "success";
+    document.querySelector(".wisdom").style.backgroundImage = `url(${background.value})`;
+  });
+}
+
+onMounted(() => {
+  fetchCard();
+})
 </script>
 
 <style scoped>
 .card {
-  @apply gap-4 content-center p-8 rounded-lg flex flex-col-reverse items-center md:flex-row space-y-10 md:space-y-0 md:space-x-4;
+  @apply gap-4 content-center p-8 rounded-lg flex flex-col-reverse items-center md:flex-row lg:space-x-4;
 }
 
 .loading {
@@ -65,7 +52,7 @@ export default {
 }
 
 .text {
-  @apply p-4 text-4xl md:text-5xl lg:text-6xl text-center text-white;
+  @apply pt-4 md:p-4 text-2xl md:text-5xl lg:text-6xl text-center text-white;
 }
 
 .cardo-regular-italic {
