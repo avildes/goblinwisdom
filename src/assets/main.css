@@ -3,5 +3,47 @@
 @tailwind utilities;
 
 body {
-    @apply bg-orange-900;
+    @apply bg-[#1f1b24];
+}
+
+.blog {
+
+    --text-color: #faf5ff;
+    --color-black:                  #121212;
+    --color-white:                  #FFFFFF;
+    --color-white-off:              #EEEEEE;
+    --color-gray:                   #808080;
+    --color-green:                  #00FF57;
+  
+    --color-accent: #5211a2;
+
+    /** Dark theme primary colors */
+    --color-primary-a0: #f5ce0a;
+    --color-primary-a10: #f8d33d;
+    --color-primary-a20: #fbd85a;
+    --color-primary-a30: #fdde74;
+    --color-primary-a40: #ffe38c;
+    --color-primary-a50: #ffe9a3;
+
+    /** Dark theme surface colors */
+    --color-surface-a0: var(--color-black);
+    --color-surface-a10: var(--color-black);
+    --color-surface-a20: #4a464e;
+    --color-surface-a30: #615e65;
+    --color-surface-a40: #7a777d;
+    --color-surface-a50: #939095;
+
+    /** Dark theme mixed surface colors */
+    --color-surface-mixed-a0: #332a27;
+    --color-surface-mixed-a10: #473e3b;
+    --color-surface-mixed-a20: #5b5351;
+    --color-surface-mixed-a30: #716a67;
+    --color-surface-mixed-a40: #87817f;
+    --color-surface-mixed-a50: #9e9997;
+}
+
+/** Examples */
+.bg-primary {
+    color: var(--color-primary-a50);
+    background-color: var(--color-surface-a0);
 }

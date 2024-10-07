@@ -2,11 +2,9 @@
 
 >A **symlink** or a **Symbolic Link** is simply enough a shortcut to another file. It is a file that points to another file.
 >
->Source: *[What is a Symlink? (devdojo.com)](https://devdojo.com/devdojo/what-is-a-symlink)*
+>*[- What is a Symlink? (devdojo.com)](https://devdojo.com/devdojo/what-is-a-symlink)*
 
-You can create Symlinks between files or directories.
-
-Original file stays the same
+Its possible to create Symlinks between files or directories. The original file or directory is not changed in this process.
 # Creating Symlinks
 
 Open cmd as administrator on windows and run the `mklink` command.
@@ -28,7 +26,7 @@ mklink /D "C:\symlink_test\NEW_FOLDER" "C:\symlink_test\EXISTING_FOLDER"
 
 # Checking Symlinks
 
-To check run `dir`, you'll see that *NEW_FOLDER* was created is a *SYMLINKD*.
+To check run `dir`, you'll see that *NEW_FOLDER* was created and is a *SYMLINKD*.
 Also note that *EXISTING_FOLDER* is still there and is a *DIR*:
 
 ![Symlink_creation.png](./src/assets/markdown/Symlink_creation.png)
@@ -38,22 +36,18 @@ Now every file or directory that is created on one of the folders will automatic
 
 The Symlink is just a shortcut, so to delete it, just delete the *NEW_FOLDER* shortcut.
 
->[!important]
 >Be careful to not remove the original file or folder.
 
 # Troubleshooting
 
-**Cannot create a file when that file already exists**
+## Cannot create a file when that file already exists
 The *NEW_FOLDER* name should be a folder that doesn't exist yet in that path.
 
-**Access is Denied**
+## Access is Denied
 Probably you forgot to add `/D` after the `mklink` command.
 
-**The syntax of the command is incorrect.**
+## The syntax of the command is incorrect.
 Did you type `\D` instead of `/D`?
 
-**You do not have sufficient privilege to perform this operation.**
+## You do not have sufficient privilege to perform this operation.
 You need to open CMD as administrator to execute this command. This also doesn't work on windows new app *Terminal* or *Powershell*. 
-
-# Additional Resources
-![](https://youtu.be/RDH5IuyPJtk?si=h860fYCUwgUGTv1w)
