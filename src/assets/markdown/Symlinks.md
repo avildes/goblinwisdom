@@ -9,7 +9,7 @@ Its possible to create Symlinks between files or directories. The original file 
 
 Open cmd as administrator on windows and run the `mklink` command.
 
-![Symlink_help.png](./src/assets/markdown/Symlink_help.png)
+![Symlink_help.png](Symlink_help.png)
 
 Let's say we need to create a link from the *EXISTING_FOLDER* to *NEW_FOLDER*. After the Symlink creation *NEW_FOLDER* will be a shortcut to *EXISTING_FOLDER*.
 
@@ -29,7 +29,7 @@ mklink /D "C:\symlink_test\NEW_FOLDER" "C:\symlink_test\EXISTING_FOLDER"
 To check run `dir`, you'll see that *NEW_FOLDER* was created and is a *SYMLINKD*.
 Also note that *EXISTING_FOLDER* is still there and is a *DIR*:
 
-![Symlink_creation.png](./src/assets/markdown/Symlink_creation.png)
+![Symlink_creation.png](Symlink_creation.png)
 
 Now every file or directory that is created on one of the folders will automatically appear on the other one.
 # Removing Symlinks
