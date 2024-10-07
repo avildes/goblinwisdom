@@ -10,10 +10,13 @@
         <p>This website is not endorsed by or affiliated with Scryfall or Wizards of the Coast.</p>
         <p class="pt-8">Loading SVG credits: <a href="https://codepen.io/eluc/pen/qmvKEY" target='_blank'>@eluc</a></p>
         <div class="pt-8 flex place-content-center">
-            <a href='https://ko-fi.com/Z8Z414ASRG' target='_blank'>
+            <a class="pt-1" href='https://ko-fi.com/Z8Z414ASRG' target='_blank'>
                 <img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=3'
                     border='0' alt='Buy Me a Coffee at ko-fi.com' />
             </a>
+            <div class="button ml-8 mb-4">
+                <RouterLink to="/blog">My Blog</RouterLink>
+            </div>
         </div>
     </div>
 </template>
