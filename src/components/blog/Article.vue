@@ -7,7 +7,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import { marked } from "marked";
-const mdfile = "@/assets/markdown/Symlinks.md";
+import mdfile from "@/assets/markdown/Symlinks.md?url";
 const markdown = ref("");
 
 const getMarkdownData =
