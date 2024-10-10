@@ -1,7 +1,7 @@
 <template>
-    <div class="article">
-        <div class="content" v-html="mdToHtml"></div>
-    </div>
+  <div class="article">
+    <div class="content" v-html="mdToHtml"></div>
+  </div>
 </template>
 
 <script setup>
@@ -10,64 +10,61 @@ import { marked } from "marked";
 import mdfile from "@/assets/markdown/Symlinks.md?url";
 const markdown = ref("");
 
-const getMarkdownData =
-    async () => {
-        await fetch(mdfile)
-            .then((response) => response.text())
-            .then((data) => markdown.value = data);
-
-    };
+const getMarkdownData = async () => {
+  await fetch(mdfile)
+    .then((response) => response.text())
+    .then((data) => (markdown.value = data));
+};
 const mdToHtml = computed(() => {
-    const mdhtml = marked.parse(markdown.value);
-    return mdhtml;
+  const mdhtml = marked.parse(markdown.value);
+  return mdhtml;
 });
 
 getMarkdownData();
 </script>
 
-
 <style lang="css">
 .article {
-    @apply p-4 md:p-8 text-left rounded-lg bg-[var(--color-surface-a10)] max-w-max md:max-w-screen-lg text-pretty text-[var(--text-color)];
+  @apply max-w-max text-pretty rounded-lg bg-[var(--color-surface-a10)] p-4 text-left text-[var(--text-color)] md:max-w-screen-lg md:p-8;
 }
 
 .article h1 {
-    @apply text-2xl pt-4 pb-2 text-[var(--color-primary-a0)];
+  @apply pb-2 pt-4 text-2xl text-[var(--color-primary-a0)];
 }
 
 .article h2 {
-    @apply text-xl ml-2 pt-2 pb-2 text-[var(--color-primary-a0)];
+  @apply ml-2 pb-2 pt-2 text-xl text-[var(--color-primary-a0)];
 }
 
 .article p {
-    @apply text-lg pl-1 pr-1 md:pl-4 md:pr-4 pb-1;
+  @apply text-pretty pb-1 pl-1 pr-1 text-lg md:pl-4 md:pr-4;
 }
 
 .article p em {
-    @apply text-lg text-[var(--color-green)] italic;
+  @apply text-lg italic text-[var(--color-green)];
 }
 
 .article blockquote {
-    @apply text-lg m-4 pl-4 pr-4 border-l-4 border-[var(--color-primary-a0)];
+  @apply m-4 text-pretty border-l-4 border-[var(--color-primary-a0)] pl-4 text-lg lg:pr-4;
 }
 
 .article blockquote em {
-    @apply text-lg text-[var(--color-surface-a30)] italic flex justify-end;
+  @apply flex justify-end text-lg italic text-[var(--color-surface-a30)];
 }
 
 .article img {
-    @apply pt-4 pb-8;
+  @apply pb-8 pt-4;
 }
 
 .article pre {
-    @apply p-4 m-4 text-pretty bg-[var(--color-surface-a10)] rounded-lg overflow-x-auto;
+  @apply m-4 overflow-x-auto text-pretty rounded-lg bg-[var(--color-surface-a10)] p-4;
 }
 
 .article pre code {
-    @apply text-[var(--text-color)] bg-[var(--color-surface-a10)];
+  @apply bg-[var(--color-surface-a10)] text-[var(--text-color)];
 }
 
 .article code {
-    @apply p-1 bg-[var(--color-green)] text-nowrap text-[var(--color-surface-a10)] rounded-lg;
+  @apply text-nowrap rounded-lg bg-[var(--color-green)] p-1 text-[var(--color-surface-a10)];
 }
 </style>

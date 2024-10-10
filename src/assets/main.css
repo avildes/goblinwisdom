@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-    @apply bg-[#1f1b24];
+    @apply bg-[#121212];
+    /* bg-[#1f1b24]; */
 }
 
 .blog {
