@@ -2,7 +2,9 @@
     <div class="blog">
         <!--<h1 id="header">Punk Records</h1>-->
         <h1 id="header">Symlinks</h1>
-        <Article />
+        <div class="content">
+            <Article />
+        </div>
     </div>
 </template>
 <script setup>
@@ -11,8 +13,12 @@ import Article from "./Article.vue";
 
 <style lang="css">
 .blog {
-    @apply h-full p-8 max-w-max md:max-w-screen-lg rounded-lg text-[var(--text-color)] flex flex-col text-center bg-[var(--color-surface-a0)];
+    @apply h-full w-full p-8 rounded-lg text-[var(--text-color)] flex flex-col items-center bg-[var(--color-surface-a0)];
     font-family: Cascadia code, monospace;
+}
+
+.content {
+    @apply max-w-max md:max-w-screen-lg;
 }
 
 #header {
